@@ -14,7 +14,7 @@ const STORAGE_KEY = 'user-color-scheme'
 const defaultTheme = {{ $style }}
 
 let currentTheme
-let switchButton
+let switchButtons = []
 let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
 
 const autoChangeScheme = e => {
@@ -24,7 +24,7 @@ const autoChangeScheme = e => {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    switchButton = document.querySelector('.theme-switcher')
+    switchButtons = document.getElementsByClassName('theme-switcher')
     currentTheme = detectCurrentScheme()
     if (currentTheme == 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark')
@@ -34,9 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
         autoDefinedScheme.addListener(autoChangeScheme);
     }
 
-    if (switchButton) {
+    if (switchButtons.length > 0) {
         changeButtonText()
-        switchButton.addEventListener('click', switchTheme, false)
+        for (let button of switchButtons) {
+            button.addEventListener('click', switchTheme, false)
+        }
     }
   
     showContent()
@@ -60,8 +62,8 @@ function detectCurrentScheme() {
 
 function changeButtonText()
 {   
-    if (switchButton) {
-        switchButton.textContent = currentTheme == 'dark' ?  {{ i18n "lightTheme" }} : {{ i18n "darkTheme" }}
+    for (let button of switchButtons) {
+        button.textContent = currentTheme == 'dark' ?  {{ i18n "lightTheme" }} : {{ i18n "darkTheme" }}
     }
 }
 
@@ -76,6 +78,8 @@ function switchTheme(e) {
         currentTheme = 'dark'
     }
     changeButtonText()
+    location.reload()
+
 }
 
 function showContent() {

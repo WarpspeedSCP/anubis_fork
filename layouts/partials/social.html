@@ -1,4 +1,9 @@
 <ul class="social-icons">
+    {{ if and (not (eq .Page.RelPermalink "/")) (not (eq .Page.RelPermalink "/posts/")) }}
+    <button class="theme-switcher" style="margin-right: 1em;">
+        {{ i18n "darkTheme" }}
+    </button>
+    {{ end }}
 
 {{ range $.Site.Params.Social }}
     {{ if and (isset $.Site.Data.social.social_icons .id) (isset . "url") }}

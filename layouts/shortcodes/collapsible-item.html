@@ -1,0 +1,44 @@
+{{ $id := .Get "id" }}
+
+{{ $plus := resources.Get "images/plus-light.svg" }}
+{{ $minus := resources.Get "images/minus-light.svg" }}
+
+
+<div id="{{ $id }}" style="margin-bottom: 4px;">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let theme = (localStorage.getItem('user-color-scheme')) ? localStorage.getItem('user-color-scheme') : 'light';
+            let clickable = this.getElementById("{{$id}}-dropdown-title");
+            let image = this.getElementById('{{$id}}-hdr-img');
+            let content = this.getElementById('{{$id}}-content');
+            let plusImg = '{{ $plus.RelPermalink }}';
+            let minusImg = '{{ $minus.RelPermalink }}';
+            image.src = plusImg;
+            if (theme === 'dark') {
+                image.style.filter = "invert(0.75)";
+            }
+
+            clickable.onclick = function () {
+                if (content.style.display === 'block') { 
+                    image.src = plusImg; 
+                    content.style.display = 'none'; 
+                } else { 
+                    image.src = minusImg; 
+                    content.style.display = 'block'; 
+                }
+            };
+        });
+    </script>
+    <div id="{{ $id }}-dropdown-title" style="margin-block: 8px;">
+        <span style="display: inline-flex; margin-inline: 8px;">
+            <img style="width: 12px; height: 12px;"id="{{$id}}-hdr-img" />
+        </span> 
+        <span style="display: inline-flex; font-weight: bold; font-size: larger;">{{ .Get "title" }}</span>
+    </div>
+
+    <hr>
+
+    <div id="{{ $id }}-content" style="display: none;">
+        {{ .Inner | markdownify }}
+    </div>
+</div>

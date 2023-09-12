@@ -1,4 +1,6 @@
-{{ if .Site.DisqusShortname }}
+
+<div style="margin-top: 16pt;">
+    {{ if .Site.DisqusShortname }}
     {{ partial "disqus.html" . }}
 {{ end }}
 
@@ -13,3 +15,5 @@
 {{ if .Site.Params.graphcommentId }}
     {{ partial "graphcomment.html" . }}
 {{ end }}
+
+</div>
