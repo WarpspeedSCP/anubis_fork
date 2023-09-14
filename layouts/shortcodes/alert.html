@@ -1,0 +1,6 @@
+<div class="alert alert-2-secondary">
+    <h3 class="alert-title">{{ .Get "title" | htmlUnescape | markdownify }}</h3>
+    <p class="alert-content">
+        {{ .Inner | markdownify }}
+    </p>
+</div>

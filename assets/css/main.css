@@ -1,6 +1,14 @@
 {{ $light := resources.Get "css/light.css" }}
 {{ $dark := resources.Get "css/dark.css" }}
 
+.alert-content {
+    margin: 0;
+    font-size: 14px;
+    margin-bottom: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #333333;
+  }
+
 {{ $light.Content }}
 
 {{ if eq site.Params.style "dark-without-switcher" }}
@@ -54,7 +62,8 @@ section {
 }
 
 .container {
-    max-width: 42em;
+    min-width: 42em;
+    max-width: 60em;
     margin: 0 auto;
 }
 
@@ -82,6 +91,20 @@ a {
     text-decoration: none;
     border-bottom: 1px solid transparent;
 }
+
+.alert {
+    min-width: 50%;
+    max-width: 90%;
+    padding: 16px;
+    margin: 8px;
+}
+
+.alert-title {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+  }
 
 a:hover,
 a:focus,
@@ -147,6 +170,10 @@ pre {
     padding: 1em;
     max-width: 100%;
     overflow: auto;
+}
+
+a code {
+    text-decoration: underline dotted;
 }
 
 code,

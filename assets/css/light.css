@@ -29,4 +29,52 @@
 
     --svg-color: #333;
     --svg-state-color: #a31d1d;
+          
+      .alert-1-primary {
+        background-color: rgba(77, 77, 255, 0.05);
+      }
+      .alert-1-primary .alert-title {
+        color: #4d4dff;
+      }
+      
+      .alert-1-warning {
+        background-color: rgba(255, 186, 0, 0.05);
+      }
+      .alert-1-warning .alert-title {
+        color: #ffba00;
+      }
+      
+      .alert-2-success {
+        border-left: 4px solid #2ec946;
+        background-color: rgba(46, 201, 70, 0.05);
+      }
+      .alert-2-success .alert-title {
+        color: #2ec946;
+      }
+      
+      .alert-2-secondary {
+        border-left: 4px solid #666666;
+        background-color: rgba(102, 102, 102, 0.05);
+      }
+      .alert-2-secondary .alert-title {
+        color: #666666;
+      }
+      
+      .alert-3-primary {
+        border: 1px solid #cdcdff;
+        border-radius: 8px;
+        background-color: rgba(77, 77, 255, 0.05);
+      }
+      .alert-3-primary .alert-title {
+        color: #4d4dff;
+      }
+      
+      .alert-3-danger {
+        border: 1px solid #ffb8b8;
+        border-radius: 8px;
+        background-color: rgba(255, 56, 56, 0.05);
+      }
+      .alert-3-danger .alert-title {
+        color: #ff3838;
+      }
 }
