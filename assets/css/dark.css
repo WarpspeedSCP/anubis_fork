@@ -14,7 +14,7 @@
     --nav-link-color: #b6b6b6;
     
     --pre-color: #f8f8f2;
-    --pre-bg-color: #212121;
+    --pre-bg-color: #373832;
     
     --bq-color: #ccc;
     --hr-color: #333;
@@ -80,7 +80,9 @@
       
       .alert-content {
         margin: 0;
-        font-size: 14px;
+        font-size: medium;
+        margin-bottom: 16px;
+        font-family: "Open Sans", sans-serif;
         color: #dddddd;
       }
 /* } */

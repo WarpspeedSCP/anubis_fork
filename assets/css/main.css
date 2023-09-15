@@ -3,7 +3,7 @@
 
 .alert-content {
     margin: 0;
-    font-size: 14px;
+    font-size: medium;
     margin-bottom: 16px;
     font-family: "Open Sans", sans-serif;
     color: #333333;
@@ -62,8 +62,8 @@ section {
 }
 
 .container {
-    min-width: 42em;
-    max-width: 60em;
+    width: 48em;
+    max-width: 90%;
     margin: 0 auto;
 }
 
@@ -94,9 +94,9 @@ a {
 
 .alert {
     min-width: 50%;
-    max-width: 90%;
+    max-width: 100%;
     padding: 16px;
-    margin: 8px;
+    margin-block: 16px;
 }
 
 .alert-title {
@@ -176,14 +176,24 @@ a code {
     text-decoration: underline dotted;
 }
 
-code,
 pre,
 kbd {
     color: var(--pre-color);
     background-color: var(--pre-bg-color);
     font-family: monospace;
-    font-size: 0.90em;
+    font-size: large;
     line-height: 154%;
+}
+
+code {
+    color: var(--pre-color);
+    background-color: var(--pre-bg-color);
+    font-family: monospace;
+    font-size: large;
+    line-height: 154%;
+    border-radius: 2px;
+    padding-inline: 3px;
+    padding-bottom: 2px;
 }
 
 pre code, pre kbd {
@@ -200,8 +210,12 @@ blockquote {
 }
 
 p {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    /* margin-left: em; */
+    margin-right: 2em;
+    line-height: 125%;
+    font-size: large;
 }
 
 hr {
