@@ -16,9 +16,18 @@
             </header>
         </div>
 
+        <div class="js-display">
         {{ if not .Params.disableComments }}
             {{ partial "ads.html" . }}
         {{ end }}
+        </div>
+
+        <div class="alert alert-2-secondary js-display-none">
+            <h3 class="alert-title">JavaScript is disabled</h3>
+            <p class="alert-content">
+                The theme toggle, code copy buttons and disqus won't work.                    
+            </p>
+        </div>
 
         <div class="content e-content">
             {{ .Content }}

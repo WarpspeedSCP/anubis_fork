@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   function addCopyButton(containerEl) {
+    // $('html').classList.toggle("js");
     let copyBtn = document.createElement("button");
     copyBtn.className = "highlight-copy-btn";
     copyBtn.innerHTML = svgCopyCode;

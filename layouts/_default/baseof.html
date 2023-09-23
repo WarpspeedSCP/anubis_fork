@@ -8,6 +8,8 @@
     {{ block "head" . }}
         {{ partial "head.html" . }}
     {{ end }}
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script>$("html").toggleClass("js");</script>
 </head>
 <body>
     <a class="skip-main" href="#main">{{ i18n "skipToContent" }}</a>

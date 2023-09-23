@@ -1,6 +1,8 @@
 {{ $id := .Get "id" }}
 {{ $size := default "larger" (.Get "size") }}
 
+{{ $default_expanded := default false (.Get "expanded") }}
+
 
 {{ $plus := resources.Get "images/plus-light.svg" }}
 {{ $minus := resources.Get "images/minus-light.svg" }}
@@ -15,32 +17,32 @@
             let content = this.getElementById('{{$id}}-content');
             let plusImg = '{{ $plus.RelPermalink }}';
             let minusImg = '{{ $minus.RelPermalink }}';
-            image.src = plusImg;
+            image.src = {{ if eq $default_expanded false }} plusImg {{ else }} minusImg {{ end }};
             if (theme === 'dark') {
                 image.style.filter = "invert(0.75)";
             }
 
             clickable.onclick = function () {
-                if (content.style.display === 'block') { 
-                    image.src = plusImg; 
-                    content.style.display = 'none'; 
+                if (content.classList.toggle("expanded")) { 
+                    image.src = minusImg;
                 } else { 
-                    image.src = minusImg; 
-                    content.style.display = 'block'; 
+                    image.src = plusImg; 
                 }
             };
         });
     </script>
     <div id="{{ $id }}-dropdown-title" style="margin-block: 8px;">
         <span style="display: inline-flex; margin-inline: 8px;">
-            <img style="width: 12px; height: 12px;"id="{{$id}}-hdr-img" />
+            <img style="width: 12px; height: 12px;" id="{{$id}}-hdr-img" class="js-display" />
         </span> 
         <span style="display: inline-flex; font-weight: bold; font-size: {{ $size }}; line-height: 1.0">{{ .Get "title" | htmlUnescape | markdownify }}</span>
     </div>
 
     <hr>
 
-    <div id="{{ $id }}-content" style="display: none;">
-        {{ .Inner | markdownify }}
+    <div class="expand-container">
+        <div class="expandable {{ if eq $default_expanded true }} {{ "expanded" }} {{ end }}" id="{{ $id }}-content" >
+            {{ .Inner | markdownify }}
+        </div>
     </div>
 </div>

@@ -792,3 +792,27 @@ ul.language-select > li, ul.footer-menu > li {
     z-index: 1;
   }
 {{ end }}
+
+.js .js-display-none {
+    display: none;
+}
+
+.js-display {
+    display: none;
+}
+
+.js .js-display {
+    display: block;
+}
+
+.js div.expandable {
+    height: 0;
+}
+
+.js .expand-container {
+    overflow: hidden;
+}
+
+.js div.expandable.expanded {
+    height: 100%;
+}
