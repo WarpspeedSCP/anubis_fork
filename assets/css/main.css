@@ -165,6 +165,10 @@ th, td {
     border: 1px double var(--table-border-color);
 }
 
+table.invis td {
+    border: none;
+}
+
 /* Code */
 pre {
     padding: 1em;
